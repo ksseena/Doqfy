@@ -1,0 +1,16 @@
+<!-- templates/snippets/create_snippet.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PasteLockly - Share Snippets Anonymously</title>
+</head>
+<body>
+    <h1>PasteLockly</h1>
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="content" rows="5" cols="40"></textarea>
+        <input type="text" name="secret_key" placeholder="Optional secret key">
+        <input type="submit" value="Create Snippet">
+    </form>
+</body>
+</html>

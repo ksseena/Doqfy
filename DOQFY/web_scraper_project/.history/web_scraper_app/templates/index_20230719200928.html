@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nifty 50 Data</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nifty 50 Data</h1>
+        <div class="row">
+            {% for entry in data %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ entry.company }}</h5>
+                            <p class="card-text">Last Price: {{ entry.last_price }}</p>
+                            <p class="card-text">Change: {{ entry.change }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script>
+        function updateData() {
+            fetch('/').then(function(response) {
+                return response.text();
+            }).then(function(data) {
+                document.querySelector('.container').innerHTML = data;
+            });
+        }
+
+        // Refresh data every 5 minutes
+        setInterval(updateData, 300000);
+    </script>
+</body>
+</html>

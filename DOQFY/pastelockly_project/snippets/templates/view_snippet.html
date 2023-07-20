@@ -1,0 +1,19 @@
+<!-- templates/snippets/view_snippet.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PasteLockly - Snippet</title>
+</head>
+<body>
+    <h1>PasteLockly - Snippet</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% if snippet.secret_key %}
+            <input type="text" name="secret_key" placeholder="Enter secret key">
+        {% endif %}
+        <input type="submit" value="View Snippet">
+    </form>
+
+    
+</body>
+</html>

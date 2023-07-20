@@ -1,0 +1,22 @@
+<!-- templates/web_scraper_app/card_layout.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nifty 50 Data</title>
+    <!-- Add any necessary CSS and styling here -->
+</head>
+<body>
+    <!-- Loop through the data and create cards for each item -->
+    {% for item in nifty_data %}
+        <div class="card">
+            <div class="card-header">
+                <h2>{{ item.name }}</h2>
+            </div>
+            <div class="card-body">
+                <p>Value: {{ item.value }}</p>
+                <!-- Add any other relevant data from the item here -->
+            </div>
+        </div>
+    {% endfor %}
+</body>
+</html>
